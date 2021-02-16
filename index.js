@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const lecturerRoute = require('./routes/lecturer.route');
+require('dotenv').config()
 const app = express();
 
 const PORT = 5000;
@@ -17,9 +18,7 @@ app.use(lecturerRoute);
 
 
 
-mongoose.connect('mongodb+srv://mbiplang:mbiplang123.@ulecturescluster.pcwiu.mongodb.net/lecturer?retryWrites=true&w=majority',
-  { useNewUrlParser: true, useUnifiedTopology: true }
-)
+mongoose.connect(process.env.DATABASE_URI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => app.listen(PORT, () => console.log(`Server running on PORT: ${PORT}`)))
   .catch(console.log)
 
