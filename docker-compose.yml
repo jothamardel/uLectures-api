@@ -8,10 +8,16 @@ services:
     build: ./
     command: npm start
     working_dir: /usr/src/ulectures-api
+    environment: 
+      DATABASE_URL: mongodb://mongodb:27017/?compressors=zlib&readPreference=primary&gssapiServiceName=mongodb&appname=MongoDB%20Compass&ssl=false
+    links: 
+      - mongodb
     ports:
       - "5000:5000"
     volumes:
       - ./:/usr/src/ulectures-api
+    depends_on:
+      - mongodb
 
 
   # MongoDB Database
@@ -26,3 +32,8 @@ services:
     ports:
       - 27017:27017
     restart: unless-stopped
+  
+  
+networks: 
+  network: 
+    driver: bridge

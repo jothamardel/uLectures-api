@@ -18,9 +18,9 @@ app.get('/', (req, res, next) => res.send("uLectures ready to go!"));
 
 app.use(lecturerRoute);
 
+console.log(process.env.DATABASE_URL)
 
-
-mongoose.connect(process.env.DATABASE_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => app.listen(PORT, () => console.log(`Server running on PORT: ${PORT}`)))
   .catch(console.log)
 
