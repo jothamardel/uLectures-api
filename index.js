@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const morgan = require('morgan');
 const lecturerRoute = require('./routes/lecturer.route');
-require('dotenv').config()
+require('dotenv').config();
 const app = express();
 
 const PORT = 5000;
@@ -18,7 +18,6 @@ app.get('/', (req, res, next) => res.send("uLectures ready to go!"));
 
 app.use(lecturerRoute);
 
-console.log(process.env.DATABASE_URL)
 
 mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => app.listen(PORT, () => console.log(`Server running on PORT: ${PORT}`)))
