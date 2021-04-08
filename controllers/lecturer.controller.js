@@ -21,7 +21,7 @@ exports.lecturerRegistrationController = (req, res, next) => {
         .save()
         .then(result => {
           console.log(result);
-          res.status(200).json('Registeration successful!')
+          res.status(200).json('Registeration successful!');
         })
         .catch(err => console.log(err))
     })
