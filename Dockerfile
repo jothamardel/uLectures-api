@@ -1,4 +1,4 @@
-FROM node:10.23.3
+FROM  node:14.16.0
 
 WORKDIR /usr/src/ulectures-api
 
