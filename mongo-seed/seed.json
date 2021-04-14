@@ -1,0 +1,20 @@
+[
+  {
+    "name": "John Doe",
+    "email": "johndoe@gmail.com",
+    "phone": "01022789098",
+    "qualification": "Professor",
+    "bio": "Lecturer with university of Jos, computer science department.",
+    "photoUrl": "",
+    "hash": "1234567890"
+  },
+  {
+    "name": "Jane Doe",
+    "email": "janedoe@gmail.com",
+    "phone": "02022789098",
+    "qualification": "Doctor",
+    "bio": "Lecturer with university of Jos, Physics department.",
+    "photoUrl": "http",
+    "hash": "1234567891"
+  }
+]

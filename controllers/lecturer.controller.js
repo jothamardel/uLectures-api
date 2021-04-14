@@ -1,5 +1,6 @@
 const LecturerSchema = require('../model/lecturer.model');
 const Hashschema = require('../model/hash.model');
+const CourseSchema = require('../model/course.model');
 
 exports.getAllLecturers = (req, res, next) => {
   LecturerSchema.find()
@@ -33,6 +34,7 @@ exports.lecturerRegistrationController = (req, res, next) => {
 }
 
 
-exports.lecturerCourse = (req, res, next) => {
-
+exports.lecturerDetails = (req, res, next) => {
+  console.log(req.params)
+  // CourseSchema.findById({lecturer_id: })
 }

@@ -19,7 +19,6 @@ services:
     depends_on:
       - mongodb
 
-
   # MongoDB Database
   mongodb:
     image: mongo
@@ -32,4 +31,11 @@ services:
     ports:
       - 27017:27017
     restart: unless-stopped
+
+
+  # MongoDB Seed data
+  mongo-seed:
+    build: ./mongo-seed
+    links: 
+      - mongodb
   
