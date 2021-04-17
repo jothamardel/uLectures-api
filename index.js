@@ -1,24 +1,9 @@
-const express = require('express');
 const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
-const cors = require('cors');
-const morgan = require('morgan');
-const lecturerRoute = require('./routes/lecturer.route');
-require('dotenv').config()
-const app = express();
+const app = require('./app');
+require('dotenv').config();
+
 
 const PORT = 5000;
-
-app.use(morgan('combined'));
-app.use(cors());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
-
-app.get('/', (req, res, next) => res.send("uLectures ready to go!"));
-
-app.use(lecturerRoute);
-
-
 
 mongoose.connect(process.env.DATABASE_URI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => app.listen(PORT, () => console.log(`Server running on PORT: ${PORT}`)))

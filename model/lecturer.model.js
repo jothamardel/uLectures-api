@@ -27,6 +27,10 @@ const lecturerSchema = Schema({
     type: String,
     required: true
   },
+  photoUrl: {
+    type: String,
+    required: true
+  },
   lecturer_id: {
     type: String,
     required: true,

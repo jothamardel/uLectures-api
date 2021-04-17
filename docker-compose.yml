@@ -1,0 +1,41 @@
+version: '3.8'
+
+services: 
+
+  # uLectures backend api
+  ulectures-api: 
+    container_name: ulecture-backend
+    build: ./
+    command: npm start
+    working_dir: /usr/src/ulectures-api
+    environment: 
+      DATABASE_URI: mongodb://mongodb:27017/?compressors=zlib&readPreference=primary&gssapiServiceName=mongodb&appname=MongoDB%20Compass&ssl=false
+    links: 
+      - mongodb
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./:/usr/src/ulectures-api
+    depends_on:
+      - mongodb
+
+  # MongoDB Database
+  mongodb:
+    image: mongo
+    container_name: mongodb
+    environment:
+      - PUID=1000
+      - PGID=1000
+    volumes:
+      - ./database:/data/db
+    ports:
+      - 27017:27017
+    restart: unless-stopped
+
+
+  # MongoDB Seed data
+  mongo-seed:
+    build: ./mongo-seed
+    links: 
+      - mongodb
+  
