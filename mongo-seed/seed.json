@@ -5,8 +5,7 @@
     "phone": "01022789098",
     "qualification": "Professor",
     "bio": "Lecturer with university of Jos, computer science department.",
-    "photoUrl": "",
-    "hash": "1234567890"
+    "photoUrl": "https://robohash.org/set_set5/johndoe?size=200x200"
   },
   {
     "name": "Jane Doe",
@@ -14,7 +13,6 @@
     "phone": "02022789098",
     "qualification": "Doctor",
     "bio": "Lecturer with university of Jos, Physics department.",
-    "photoUrl": "http",
-    "hash": "1234567891"
+    "photoUrl": "https://robohash.org/set_set5/janedoe?size=200x200"
   }
 ]

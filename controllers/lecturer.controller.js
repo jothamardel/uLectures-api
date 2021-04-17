@@ -1,6 +1,8 @@
 const LecturerSchema = require('../model/lecturer.model');
 const Hashschema = require('../model/hash.model');
 const CourseSchema = require('../model/course.model');
+const ContentSchema = require('../model/content.model');
+const bcrypt = require('bcrypt');
 
 exports.getAllLecturers = (req, res, next) => {
   LecturerSchema.find()
@@ -18,7 +20,9 @@ exports.lecturerRegistrationController = (req, res, next) => {
   new LecturerSchema({ name, email, phone, qualification, bio, photoUrl })
     .save()
     .then(userdata => {
-      return new Hashschema({ email, hash, phone, id: userdata.lecturer_id })
+      const saltRounds = 10;
+      const password = bcrypt.hashSync(hash, saltRounds);
+      return new Hashschema({ email, hash: password, phone, id: userdata.lecturer_id })
         .save()
         .then(result => {
           console.log(result);
@@ -36,5 +40,51 @@ exports.lecturerRegistrationController = (req, res, next) => {
 
 exports.lecturerDetails = (req, res, next) => {
   console.log(req.params)
-  // CourseSchema.findById({lecturer_id: })
+  LecturerSchema.find({ lecturer_id: req.params.id })
+    .then(lecturer => {
+      const lecturerDetails = [...lecturer];
+      CourseSchema.find({ lecturer_id: req.params.id })
+        .then(res => {
+          console.log("Result=========>", res);
+          // if (!res.length) return;
+          // lecturerDetails = [...lecturerDetails, ...res]
+        })
+        .catch(err => console.log('unable to find.'))
+      console.log(lecturerDetails);
+      res.status(200).json(lecturerDetails);
+    })
+    .catch(err => res.status(400).json([]))
+}
+
+
+exports.createCourse = (req, res, next) => {
+  new CourseSchema({
+    ...req.body
+  })
+    .save()
+    .then(data => {
+      console.log(data)
+      res.status(200).json(data);
+    })
+    .catch(err => {
+      console.log(err)
+      res.status(400).json('Unable to create course.')
+    })
+}
+
+
+exports.createContent = (req, res, next) => {
+  console.log(req.body)
+  new ContentSchema({
+    ...req.body
+  })
+    .save()
+    .then(data => {
+      console.log(data)
+      res.status(200).json(data);
+    })
+    .catch(err => {
+      console.log(err)
+      res.status(400).json('Unable to create content.')
+    })
 }

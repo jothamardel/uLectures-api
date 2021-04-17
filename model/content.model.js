@@ -7,11 +7,11 @@ const contentSchema = Schema({
     unique: true,
     required: true
   },
-  lecturer_id: {
-    type: String,
-    unique: true,
-    required: true
-  },
+  // lecturer_id: {
+  //   type: String,
+  //   unique: true,
+  //   required: true
+  // },
   video: [
     {
       video_title: {
