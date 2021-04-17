@@ -6,7 +6,7 @@ services:
   ulectures-api: 
     container_name: ulecture-backend
     build: ./
-    command: npm run dev
+    command: npm start
     working_dir: /usr/src/ulectures-api
     environment: 
       DATABASE_URI: mongodb://mongodb:27017/?compressors=zlib&readPreference=primary&gssapiServiceName=mongodb&appname=MongoDB%20Compass&ssl=false
