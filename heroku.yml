@@ -2,7 +2,7 @@
 
 # uLectures backend api
 
-ulectures-api: 
+ulectures-backend-api: 
   container_name: ulecture-backend
   build:
     docker:
