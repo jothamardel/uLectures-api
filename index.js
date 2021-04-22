@@ -3,9 +3,10 @@ const app = require('./app');
 require('dotenv').config();
 
 
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 
-mongoose.connect(process.env.DATABASE_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+// console.log("Database URI====================>", process.env.DATABASE_URI)
+mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => app.listen(PORT, () => console.log(`Server running on PORT: ${PORT}`)))
   .catch(console.log)
 

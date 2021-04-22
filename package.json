@@ -1,7 +1,7 @@
 {
   "name": "ulecture-backend-api",
   "version": "1.0.0",
-  "description": "",
+  "description": "Ulectures backend api",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
@@ -14,8 +14,8 @@
       "/node_modules/"
     ]
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["ulectures"],
+  "author": "Mbiplang Ardel",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.0.1",

@@ -4,6 +4,8 @@ WORKDIR /usr/src/ulectures-api
 
 COPY ./ ./
 
+EXPOSE 5000
+
 RUN npm install
 
-CMD ["/bin/bash"]
+CMD ["npm", "start"]
