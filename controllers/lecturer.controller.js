@@ -44,10 +44,10 @@ exports.lecturerDetails = (req, res, next) => {
     .then(lecturer => {
       const lecturerDetails = [...lecturer];
       CourseSchema.find({ lecturer_id: req.params.id })
-        .then(res => {
-          console.log("Result=========>", res);
+        .then(course => {
+          console.log("Result=========>", course);
           // if (!res.length) return;
-          lecturerDetails = [...lecturerDetails, ...res]
+          lecturerDetails = [...lecturerDetails].concat(course);
           res.status(200).json(lecturerDetails);
         })
         .catch(err => console.log('unable to find.'))
