@@ -47,7 +47,7 @@ exports.lecturerDetails = (req, res, next) => {
         .then(res => {
           console.log("Result=========>", res);
           // if (!res.length) return;
-          // lecturerDetails = [...lecturerDetails, ...res]
+          lecturerDetails = [...lecturerDetails, ...res]
         })
         .catch(err => console.log('unable to find.'))
       console.log(lecturerDetails);
