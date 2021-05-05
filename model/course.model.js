@@ -23,8 +23,7 @@ const courseSchema = Schema({
   },
   lecturer_id: {
     type: String,
-    required: true,
-    unique: true
+    required: true
   },
   price: {
     type: String,
