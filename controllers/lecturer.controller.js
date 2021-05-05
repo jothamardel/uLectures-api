@@ -48,10 +48,10 @@ exports.lecturerDetails = (req, res, next) => {
           console.log("Result=========>", res);
           // if (!res.length) return;
           lecturerDetails = [...lecturerDetails, ...res]
+          res.status(200).json(lecturerDetails);
         })
         .catch(err => console.log('unable to find.'))
       console.log(lecturerDetails);
-      res.status(200).json(lecturerDetails);
     })
     .catch(err => res.status(400).json([]))
 }
